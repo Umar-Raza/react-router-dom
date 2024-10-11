@@ -1,14 +1,29 @@
-import { CONTACTS } from "../data/contacts";
-import { Link } from "react-router-dom";
+import { getContacts } from "../api/contactsApi";
+import { Link, useLoaderData } from "react-router-dom";
+
+export const contactsLoader = async () => {
+  const contacts = await getContacts();
+  return {
+    contacts,
+  };
+};
+
 export const ContactsPage = () => {
+  const { contacts } = useLoaderData() as Awaited<
+    ReturnType<typeof contactsLoader>
+  >;
   return (
     <div>
       <h1>Contact List:</h1>
       <ul>
-        {CONTACTS.map((contactItem) => {
+        {contacts.map((contactItem) => {
           return (
-            <li key={contactItem.id}>
-              <Link to={`/contacts/${contactItem.id}`}>{contactItem.name}</Link>
+            <li key={contactItem.login.uuid}>
+              <Link
+                to={`/contacts/${contactItem.login.uuid}${contactItem.name.last}`}
+              >
+                {contactItem.name.first}
+              </Link>
             </li>
           );
         })}

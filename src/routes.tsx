@@ -3,11 +3,11 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { ContactsPage } from "./src/pages/Contacts";
-import PageNotFound from "./src/pages/PageNotFound";
-import { RootLayouot } from "./src/pages/Root";
-import { HomePage } from "./src/pages/Home";
-import { ContactDetail } from "./src/pages/ContactDetail";
+import { contactsLoader, ContactsPage } from "./pages/Contacts";
+import PageNotFound from "./pages/PageNotFound";
+import { RootLayouot } from "./pages/Root";
+import { HomePage } from "./pages/Home";
+import { ContactDetail } from "./pages/ContactDetail";
 
 // const dfa = createBrowserRouter([
 //   {
@@ -35,7 +35,11 @@ const appRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<RootLayouot />} errorElement={<PageNotFound />}>
       <Route path="" element={<HomePage />}></Route>
-      <Route path="/contacts" element={<ContactsPage />}></Route>
+      <Route
+        path="/contacts"
+        element={<ContactsPage />}
+        loader={contactsLoader}
+      />
       <Route path="/contacts/:contactId" element={<ContactDetail />}></Route>
     </Route>
   )
