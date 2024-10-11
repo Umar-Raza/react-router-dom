@@ -7,7 +7,10 @@ import { contactsLoader, ContactsPage } from "./pages/Contacts";
 import PageNotFound from "./pages/PageNotFound";
 import { RootLayouot } from "./pages/Root";
 import { HomePage } from "./pages/Home";
-import { ContactDetail } from "./pages/ContactDetail";
+import {
+  ContactDetailPage,
+  contactDetailsLoader,
+} from "./pages/ContactDetailPage";
 
 // const dfa = createBrowserRouter([
 //   {
@@ -34,13 +37,17 @@ import { ContactDetail } from "./pages/ContactDetail";
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<RootLayouot />} errorElement={<PageNotFound />}>
-      <Route path="" element={<HomePage />}></Route>
+      <Route index={true} element={<HomePage />}></Route>
       <Route
         path="/contacts"
         element={<ContactsPage />}
         loader={contactsLoader}
       />
-      <Route path="/contacts/:contactId" element={<ContactDetail />}></Route>
+      <Route
+        path="/contacts/:contactId"
+        element={<ContactDetailPage />}
+        loader={contactDetailsLoader}
+      />
     </Route>
   )
 );

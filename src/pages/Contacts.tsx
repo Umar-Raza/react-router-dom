@@ -19,10 +19,8 @@ export const ContactsPage = () => {
         {contacts.map((contactItem) => {
           return (
             <li key={contactItem.login.uuid}>
-              <Link
-                to={`/contacts/${contactItem.login.uuid}${contactItem.name.last}`}
-              >
-                {contactItem.name.first}
+              <Link to={`/contacts/${contactItem.login.uuid}$`}>
+                {contactItem.name.first} {contactItem.name.last}
               </Link>
             </li>
           );
