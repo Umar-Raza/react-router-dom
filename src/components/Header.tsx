@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 export const Header = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
       <div className="flex-1">
         <Link to={"/"} className="btn btn-ghost text-xl">
-          daisyUI
+          mu
         </Link>
       </div>
       <div className="flex-none">

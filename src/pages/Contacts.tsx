@@ -14,18 +14,37 @@ export const ContactsPage = () => {
   >;
   return (
     <div>
-      <h1>Contact List:</h1>
-      <ul>
-        {contacts.map((contactItem) => {
-          return (
-            <li key={contactItem.login.uuid}>
-              <Link to={`/contacts/${contactItem.login.uuid}$`}>
-                {contactItem.name.first} {contactItem.name.last}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <table className="table">
+        {/* <h1>Contacts List:</h1> */}
+        <thead>
+          <tr className="text-slate-200">
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contacts.map((contactItem, i) => {
+            return (
+              <tr key={i}>
+                <th>{i + 1}</th>
+                <td>{contactItem.name.first}</td>
+                <td>{contactItem.name.last}</td>
+                <td>{contactItem.email}</td>
+                <td>
+                  <button className="btn btn-sm flex justify-center text-slate-300">
+                    <Link to={`/contacts/${contactItem.login.uuid}`}>
+                      Details
+                    </Link>
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };

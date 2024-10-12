@@ -1,0 +1,10 @@
+.navbar,
+.card {
+  background-color: #113340;
+}
+
+.mainCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

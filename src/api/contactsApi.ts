@@ -5,8 +5,8 @@ const apiSeed = "codewitumar";
 const resultsCount = 10;
 
 export const getContacts = async () => {
-  const Url = `${apiUrl}?seed=${apiSeed}&results=${resultsCount}`;
-  const resp = await fetch(Url);
+  const url = `${apiUrl}?seed=${apiSeed}&results=${resultsCount}`;
+  const resp = await fetch(url);
   const jsonResp = await resp.json();
   return jsonResp.results as Contact[];
 };
