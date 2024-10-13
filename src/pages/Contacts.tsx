@@ -19,6 +19,7 @@ export const ContactsPage = () => {
         <thead>
           <tr className="text-slate-200">
             <th>#</th>
+            <th>Profile Picture</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -30,6 +31,7 @@ export const ContactsPage = () => {
             return (
               <tr key={i}>
                 <th>{i + 1}</th>
+                <td><img className="mask mask-squircle w-10 h-10" src={contactItem.picture.medium} alt="profilePic" /></td>
                 <td>{contactItem.name.first}</td>
                 <td>{contactItem.name.last}</td>
                 <td>{contactItem.email}</td>
